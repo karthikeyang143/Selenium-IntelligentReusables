@@ -72,7 +72,6 @@
 		}
 		catch (Exception e)
 		{
-			Report.updateTestLog("Exception", "Exception in dwn_sub_intelligentWait_Internal", Status.DEBUG);
 			e.printStackTrace();
 		}
 		return flag;
@@ -102,7 +101,7 @@
 			{
 
 				try {
-					if (Driver.findElement(byXpathObj).isDisplayed()) {
+					if (Driver.findElement(By.xpath(strXpathObj)).isDisplayed()) {
 						flag = true;
 						break; //Break the loop if element found
 					}
@@ -114,7 +113,6 @@
 		}
 		catch (Exception e)
 		{
-			Report.updateTestLog("Exception", "Exception in dwn_sub_intelligentWait_Internal_WithoutFrame", Status.DEBUG);
 			e.printStackTrace();
 		}
 		return flag;
