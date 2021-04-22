@@ -119,3 +119,57 @@
 		}
 		return flag;
 	}
+
+/*
+	 *******************************************************************************
+	 * @Project Name : Project Name
+	 * @Function Name : getWaitTimeInSeconds()
+	 * @Description : To get wait time in seconds from given string
+	 * @Input Param : strWait
+	 * @Return : waitSeconds
+	 * @Date : DD-MM-YYYY
+	 * @Author :  Karthik
+	 *******************************************************************************
+	 */
+	public int dwn_sub_getWaitTimeInSeconds(String strWait)
+	{
+		int waitSeconds=0;
+		//		System.out.println("======wait seconds- strWait:"+strWait);
+		if((strWait.equalsIgnoreCase("min"))||(strWait.equalsIgnoreCase("medium"))||(strWait.equalsIgnoreCase("max"))||strWait.equalsIgnoreCase("supermax")||strWait.equalsIgnoreCase("ultramax")||strWait.equalsIgnoreCase("low"))
+		{
+			strWait=strWait.toUpperCase();
+			switch (strWait)
+			{
+			case "MIN":
+				waitSeconds=30;
+				break;
+			case "MEDIUM":
+				waitSeconds=45;
+				break;
+			case "MAX":
+				waitSeconds=90;
+				break;
+			case "SUPERMAX":
+				waitSeconds=120;
+				break;
+			case "ULTRAMAX":
+				waitSeconds=160;
+				break;
+			case "LOW":
+				waitSeconds=2;
+				break;
+			default:
+				waitSeconds=5;
+				break;
+			}
+			//			System.out.println("======outside switch-getWaitTimeInSeconds :"+waitSeconds);
+		}
+		else {
+			try {
+				waitSeconds = Integer.parseInt(strWait);
+			} catch (Exception e) {				
+				System.out.println("Exception in Get Waittime");
+			}
+		}
+		return waitSeconds;
+	}
